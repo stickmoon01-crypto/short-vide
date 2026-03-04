@@ -5,11 +5,11 @@ RUN npm install -g pnpm@8.15.9
 
 WORKDIR /app
 
-# Copy package files first
+# Copy package files
 COPY package.json pnpm-lock.yaml* ./
 
-# Install dependencies
-RUN pnpm install --frozen-lockfile --prod
+# Install production deps (NO --frozen-lockfile)
+RUN pnpm install --prod
 
 # Copy the rest of the code
 COPY . .
@@ -17,8 +17,8 @@ COPY . .
 # Build the app
 RUN pnpm build
 
-# Railway needs this
+# Expose the port the repo uses
 EXPOSE 3123
 
-# Start command from the repo
+# Start command
 CMD ["pnpm", "start"]
