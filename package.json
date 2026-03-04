@@ -1,7 +1,7 @@
 {
   "name": "short-video-maker",
   "version": "1.3.4",
-  "description": "Creates short videos for TikTok, Instagram Reels, and YouTube Shorts using Model Context Protocol (MCP) and REST API",
+  "description": "Creates short videos for TikTok, Instagram Reels, and YouTube Shorts",
   "main": "dist/index.js",
   "packageManager": "pnpm@8.15.9",
   "scripts": {
@@ -14,22 +14,8 @@
     "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.3",
     "remotion": "^4.0.286",
-    "rimraf": "^6.0.1"
-  },
-  "devDependencies": {
+    "rimraf": "^6.0.1",
     "typescript": "^5.8.3",
-    "vite": "^6.3.4",
-    "@types/node": "^22.14.0"
-  },
-  "keywords": [
-    "shorts",
-    "reels",
-    "tiktok",
-    "youtube-shorts",
-    "faceless-video",
-    "video-automation"
-  ],
-  "author": "David Gyori",
-  "license": "MIT"
+    "vite": "^6.3.4"
+  }
 }
-
