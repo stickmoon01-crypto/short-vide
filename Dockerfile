@@ -1,22 +1,24 @@
 FROM node:22-slim
 
+# Install stable pnpm 8
 RUN npm install -g pnpm@8.15.9
 
 WORKDIR /app
 
+# Copy package files first
 COPY package.json pnpm-lock.yaml* ./
 
-# Install ALL deps (including dev) for build
-RUN pnpm install --frozen-lockfile
+# Install dependencies
+RUN pnpm install --frozen-lockfile --prod
 
+# Copy the rest of the code
 COPY . .
 
-# Build
+# Build the app
 RUN pnpm build
 
-# Prune to production deps only (smaller runtime image)
-RUN pnpm prune --prod
-
+# Railway needs this
 EXPOSE 3123
 
+# Start command from the repo
 CMD ["pnpm", "start"]
