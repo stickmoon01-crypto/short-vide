@@ -15,10 +15,9 @@ RUN pnpm install --prod
 COPY . .
 
 # Build the app
+# Build (ensure types are visible)
 RUN pnpm build
 
-# Expose the port the repo uses
 EXPOSE 3123
 
-# Start command
 CMD ["pnpm", "start"]
